@@ -1,0 +1,50 @@
+﻿@model InstituteOfComputers.Models.Course
+@{
+    ViewBag.Title = "NewCourse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if(@Model.Id == 0 || @Model.Id == null){
+<h2>Add New Course</h2>
+}
+else{
+<h2>Edit Course</h2>
+}
+
+@using (Html.BeginForm("Save", "Course"))
+{
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CourseName)
+        @Html.TextBoxFor(m => m.CourseName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.CourseName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Description)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.TutorName)
+        @Html.TextBoxFor(m => m.TutorName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.TutorName)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CourseRating)
+        @Html.TextBoxFor(m => m.CourseRating, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.CourseRating)
+
+    </div>
+    <div>
+        @Html.HiddenFor(m => m.Id)
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary ">Save</button>
+        </div>
+    </div>
+
+}

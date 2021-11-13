@@ -1,0 +1,32 @@
+﻿@model  IEnumerable<InstituteOfComputers.Models.Course>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Courses</h2>
+
+
+<p>
+    @Html.ActionLink("New Course", "NewCourse", "Course", null, new { @class = "btn btn-info btn-sm " })
+</p>
+
+@{
+
+foreach (var course in Model)
+{
+    <div class="card" style="border:solid 1px blue;border-radius:10px; margin:20px">
+        <h4 class="card-header" style="text-align:center"> @course.CourseName</h4>
+        <div class="card-body" style="margin-left:20px;">
+            <h5 class="card-title">Tutor Name:@course.TutorName</h5>
+            <p class="card-text">@course.Description</p>
+            <p>Rating:<strong>@course.CourseRating</strong></p>
+            @Html.ActionLink("Edit", "EditCourse", "Course", new { Id = course.Id }, null)
+            <span style="padding-right:25px;"></span>
+            @Html.ActionLink("Delete", "DeleteCourse", "Course", new { Id = course.Id }, null)
+        </div>
+    </div>
+}
+
+
+}

@@ -1,0 +1,75 @@
+﻿@model InstituteOfComputers.Models.Student
+@{
+    ViewBag.Title = "StudentDetailsView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student Details</h2>
+
+
+
+<div class="container">
+    <div class="row">
+    <div class="col-lg-3">
+
+    </div>
+    <div class="col-lg-10">
+
+        @Html.ActionLink("Edit", "Edit", "Student", new { Id = Model.Id }, null)
+
+        <span style="padding:10px;"></span>
+        @Html.ActionLink("Delete", "Delete", "Student", new { Id = Model.Id }, null)
+
+
+
+        <table class="table table-borderless" style="margin-top:20px;">
+            <tr>
+                <td>First Name:</td>
+                <td>@Model.FirstName </td>
+
+
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td>@Model.LastName </td>
+
+
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td>@Model.DateOfBirth </td>
+
+
+            </tr>
+            <tr>
+                <td>Date Enrolled:</td>
+                <td>@Model.EnrolledDate </td>
+
+
+            </tr>
+            <tr>
+                <td>Course Status</td>
+                <td>@Model.CourseStatus.CourseStatusName </td>
+
+
+            </tr>
+            <tr>
+                <td>Course</td>
+                <td>@Model.Course.CourseName </td>
+
+
+            </tr>
+            <tr>
+                <td>Grade</td>
+                <td>@Model.Grade </td>
+
+
+            </tr>
+
+        </table>
+    </div>
+    <div class="col-lg-3">
+
+    </div>
+  </div>
+</div>
